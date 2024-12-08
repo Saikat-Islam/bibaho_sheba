@@ -1,15 +1,13 @@
 import 'package:bibaho_sheba/core/app_sizes.dart';
-import 'package:bibaho_sheba/firebase_options.dart';
 import 'package:bibaho_sheba/global.dart';
 import 'package:bibaho_sheba/modules/splash_screen.dart';
 import 'package:bibaho_sheba/routes/app_pages.dart';
 import 'package:bibaho_sheba/utils/theme/app_theme.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  
   await Global.initializer();
   
   runApp(const MyApp());

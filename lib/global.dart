@@ -1,13 +1,13 @@
 
 import 'package:bibaho_sheba/data/auth_controllers.dart';
 import 'package:bibaho_sheba/firebase_options.dart';
-import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class Global {
   static Future<void> initializer() async {
+    WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform).then((FirebaseApp value)=> Get.put(AuthRepository()));
   // await FirebaseAppCheck.instance.activate(
   //   // You can also use a `ReCaptchaEnterpriseProvider` provider instance as an
@@ -18,7 +18,7 @@ class Global {
   //   // 1. Debug provider
   //   // 2. Safety Net provider
   //   // 3. Play Integrity provider
-  //   androidProvider: AndroidProvider.debug,
+    // androidProvider: AndroidProvider.debug,
   //   // Default provider for iOS/macOS is the Device Check provider. You can use the "AppleProvider" enum to choose
   //   // your preferred provider. Choose from:
   //   // 1. Debug provider

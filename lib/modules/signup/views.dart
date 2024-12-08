@@ -9,7 +9,7 @@ class SignupScreen extends GetView<SignupController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('SignupView'),
+        title: const Text('SignupView'),
       ),
     );
   }

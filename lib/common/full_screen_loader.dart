@@ -7,6 +7,7 @@ class FullScreenLoader {
         context: Get.overlayContext!,
         barrierDismissible: false,
         builder: (_) => PopScope(
+              canPop: false,
               child: Container(
                 height: double.infinity,
                 width: double.infinity,
@@ -14,7 +15,6 @@ class FullScreenLoader {
                     Text("Loading...")
                 ],),
               ),
-              canPop: false,
             ));
   }
 }

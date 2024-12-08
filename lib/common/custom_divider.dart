@@ -17,8 +17,8 @@ class CustomDivider extends StatelessWidget {
             thickness: 1.0,
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.all(9.0),
+        const Padding(
+          padding: EdgeInsets.all(9.0),
           child: Text('OR',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
         ),

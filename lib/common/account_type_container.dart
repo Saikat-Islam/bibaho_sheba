@@ -20,7 +20,7 @@ class AccountTypeContainer extends StatelessWidget {
           boxShadow: [
             BoxShadow(
                 color: AppColors.secondaryColor,
-                offset: Offset(-1, 1),
+                offset: const Offset(-1, 1),
                 blurRadius: 3.0)
           ],
           borderRadius: BorderRadius.circular(5)),
@@ -35,7 +35,7 @@ class AccountTypeContainer extends StatelessWidget {
                 .displayMedium!
                 .copyWith(fontSize: 18),
           ),
-          Icon(Icons.arrow_forward)
+          const Icon(Icons.arrow_forward)
         ],
       ),
     );

@@ -36,7 +36,7 @@ class ForgetPassword extends GetView<ForgetPasswordController> {
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: TextFormField(
                 controller: controller.emailController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: "E-mail ID",
                 ),
               ),
@@ -139,7 +139,7 @@ class ResetPassword extends GetView<ForgetPasswordController> {
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
             child: TextFormField(
               controller: controller.passController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: "Enter new password",
               ),
             ),
@@ -149,7 +149,7 @@ class ResetPassword extends GetView<ForgetPasswordController> {
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
             child: TextFormField(
               controller: controller.passController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: "Retype new password",
               ),
             ),

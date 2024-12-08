@@ -58,7 +58,7 @@ class MainHomePage extends GetView<MainHomePageController> {
                 onPressed: () {
                   Get.toNamed(Routes.NOTIFICATIONS_PAGE);
                 },
-                icon: Icon(Iconsax.notification)),
+                icon: const Icon(Iconsax.notification)),
             Positioned(
               left: 25,
               top: 12,
@@ -84,13 +84,13 @@ class MainHomePage extends GetView<MainHomePageController> {
               onPressed: () {
                 Get.toNamed(Routes.CHAT);
               },
-              icon: Icon(Iconsax.message_favorite)),
+              icon: const Icon(Iconsax.message_favorite)),
         ],
         leading: IconButton(
             onPressed: () {
               ZoomDrawer.of(context)!.toggle();
             },
-            icon: Icon(Icons.menu)),
+            icon: const Icon(Icons.menu)),
         // title: InkWell(
         //   onTap: () => Get.toNamed(Routes.FILTERING_PROFILE),
         //   child: Container(
@@ -225,7 +225,7 @@ class MainHomePage extends GetView<MainHomePageController> {
                     ),
                   )),
         ),
-        Divider(
+        const Divider(
           indent: 10,
           endIndent: 10,
         ),
@@ -333,7 +333,7 @@ class HomePageUserProfiles extends StatelessWidget {
                       .copyWith(fontWeight: FontWeight.bold),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               verifiedUser
@@ -355,7 +355,7 @@ class HomePageUserProfiles extends StatelessWidget {
                         )
                       ],
                     )
-                  : Text('')
+                  : const Text('')
             ],
           ),
           subtitle: Column(
@@ -569,10 +569,10 @@ class HomePageUserProfiles extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
-        Divider(
+        const Divider(
           endIndent: 10,
           indent: 10,
         )
@@ -662,7 +662,7 @@ class LiveNowProfiles extends StatelessWidget {
                     BoxShadow(
                         color: AppColors.secondaryColor,
                         blurRadius: 3,
-                        offset: Offset(0, 2))
+                        offset: const Offset(0, 2))
                   ],
                   image: DecorationImage(
                       fit: BoxFit.cover, image: AssetImage(image))),
@@ -684,7 +684,7 @@ class LiveNowProfiles extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 5,
                 ),
                 Text(

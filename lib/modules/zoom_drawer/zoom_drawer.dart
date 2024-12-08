@@ -23,8 +23,8 @@ class ZomDrawer extends GetView<ZomDrawerController> {
       menuBackgroundColor: AppColors.secondaryColor,
       mainScreenScale: 0.1,
       borderRadius: 20,
-      menuScreen: MenuScreen(),
-      mainScreen: NavigationMenu(),
+      menuScreen: const MenuScreen(),
+      mainScreen: const NavigationMenu(),
     );
   }
 }
@@ -38,7 +38,7 @@ class MenuScreen extends StatelessWidget {
         body: Column(
       children: [
         Container(
-          padding: EdgeInsets.only(top: 20),
+          padding: const EdgeInsets.only(top: 20),
           height: AppSizes.height / 7,
           decoration: BoxDecoration(
               boxShadow: [
@@ -64,7 +64,7 @@ class MenuScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(100),
                 ),
               ),
-              title: Text('UUID12345'),
+              title: const Text('UUID12345'),
               titleTextStyle: Theme.of(context)
                   .textTheme
                   .headlineSmall!
@@ -74,7 +74,7 @@ class MenuScreen extends StatelessWidget {
                 onTap: () {},
                 child: Row(
                   children: [
-                    Text('Edit Profile'),
+                    const Text('Edit Profile'),
                     Icon(Icons.edit, size: 20, color: AppColors.primaryColor)
                   ],
                 ),
@@ -84,47 +84,47 @@ class MenuScreen extends StatelessWidget {
         ),
         Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             DrawerCustomListTile(
               ontap: () {
-                Get.to(() => AccountSettingsScreen());
+                Get.to(() => const AccountSettingsScreen());
               },
               icon: Iconsax.people5,
               text: 'Partner Preferences',
             ),
             DrawerCustomListTile(
               ontap: () {
-                Get.to(() => AccountSettingsScreen());
+                Get.to(() => const AccountSettingsScreen());
               },
               icon: Iconsax.search_favorite,
               text: 'Search by Keywords',
             ),
             DrawerCustomListTile(
               ontap: () {
-                Get.to(() => AccountSettingsScreen());
+                Get.to(() => const AccountSettingsScreen());
               },
               icon: Icons.block_flipped,
               text: 'Blocked / Ignored Profiles',
             ),
             DrawerCustomListTile(
               ontap: () {
-                Get.to(() => AccountSettingsScreen());
+                Get.to(() => const AccountSettingsScreen());
               },
               icon: Iconsax.setting,
               text: 'Account & Settings',
             ),
             DrawerCustomListTile(
               ontap: () {
-                Get.to(() => AccountSettingsScreen());
+                Get.to(() => const AccountSettingsScreen());
               },
               icon: Iconsax.like_1,
               text: 'Rate Us',
             ),
             DrawerCustomListTile(
               ontap: () {
-                Get.to(() => AccountSettingsScreen());
+                Get.to(() => const AccountSettingsScreen());
               },
               icon: Icons.help_center,
               text: 'Help & Support',
@@ -144,7 +144,7 @@ class MenuScreen extends StatelessWidget {
                         .bodyLarge!
                         .copyWith(fontWeight: FontWeight.w500),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   CustomButton(

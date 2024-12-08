@@ -4,7 +4,6 @@ import 'package:bibaho_sheba/modules/filtering/bindings.dart';
 import 'package:bibaho_sheba/modules/filtering/views.dart';
 import 'package:bibaho_sheba/modules/forget_password/bindings.dart';
 import 'package:bibaho_sheba/modules/forget_password/view.dart';
-import 'package:bibaho_sheba/modules/fucking_data/bindings.dart';
 import 'package:bibaho_sheba/modules/fucking_data/views.dart';
 import 'package:bibaho_sheba/modules/live_now/bindings.dart';
 import 'package:bibaho_sheba/modules/live_now/views.dart';

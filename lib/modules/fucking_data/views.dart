@@ -16,8 +16,8 @@ class FuckingScreen extends GetView<FuckingController> {
 
   @override
   Widget build(BuildContext context) {
-    final FirebaseAuth _auth = FirebaseAuth.instance;
-    final user = _auth.currentUser;
+    final FirebaseAuth auth = FirebaseAuth.instance;
+    final user = auth.currentUser;
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -31,23 +31,23 @@ class FuckingScreen extends GetView<FuckingController> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   IconButton(
-                      onPressed: Get.back, icon: Icon(Iconsax.arrow_left)),
-                  CustomBibahoShebaText(),
+                      onPressed: Get.back, icon: const Icon(Iconsax.arrow_left)),
+                  const CustomBibahoShebaText(),
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Text(
               "Sign Up",
               style: Theme.of(context).textTheme.headlineSmall,
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Image(height: 50, image: NetworkImage(user?.photoURL ?? ''),),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Row(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -61,7 +61,7 @@ class FuckingScreen extends GetView<FuckingController> {
                     color: AppColors.primaryColor, fontWeight: FontWeight.bold),
               ),
             ]),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Padding(
@@ -74,7 +74,7 @@ class FuckingScreen extends GetView<FuckingController> {
                           .textTheme
                           .bodyLarge!
                           .copyWith(fontSize: 18)),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Container(
@@ -83,7 +83,7 @@ class FuckingScreen extends GetView<FuckingController> {
                     decoration: BoxDecoration(
                         color: Colors.grey[200],
                         border: Border.all(
-                            color: Color.fromARGB(80, 140, 137, 137)),
+                            color: const Color.fromARGB(80, 140, 137, 137)),
                         borderRadius: BorderRadius.circular(5)),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -95,7 +95,7 @@ class FuckingScreen extends GetView<FuckingController> {
                               .bodyLarge!
                               .copyWith(fontSize: 18),
                         ),
-                        Icon(
+                        const Icon(
                           Iconsax.lock5,
                           color: Colors.black,
                         )
@@ -105,12 +105,12 @@ class FuckingScreen extends GetView<FuckingController> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Row(
               children: [
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 Checkbox(
@@ -118,10 +118,10 @@ class FuckingScreen extends GetView<FuckingController> {
                     value: true,
                     onChanged: (value) {},
                     checkColor: Colors.white,
-                    side: BorderSide(color: Colors.grey)),
+                    side: const BorderSide(color: Colors.grey)),
                 Column(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Text(
@@ -140,7 +140,7 @@ class FuckingScreen extends GetView<FuckingController> {
                 )
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Padding(
@@ -149,7 +149,7 @@ class FuckingScreen extends GetView<FuckingController> {
                   width: double.infinity,
                   text: 'Join Bibaho Sheba',
                   ontap: () {
-                    Get.to(() => SelectType());
+                    Get.to(() => const SelectType());
                   }),
             )
           ],
@@ -179,12 +179,12 @@ class SelectType extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   IconButton(
-                      onPressed: Get.back, icon: Icon(Iconsax.arrow_left)),
-                  CustomBibahoShebaText()
+                      onPressed: Get.back, icon: const Icon(Iconsax.arrow_left)),
+                  const CustomBibahoShebaText()
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Text(
@@ -195,22 +195,22 @@ class SelectType extends StatelessWidget {
               'Don\'t worry, this can be changed later.',
               style: Theme.of(context).textTheme.bodyLarge,
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             InkWell(
               onTap: () {
-                Get.to(() => UserInfoSubmit());
+                Get.to(() => const UserInfoSubmit());
               },
               child: AccountTypeContainer(
                   image: AppImages.groom, text: 'I Want Groom'),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             InkWell(
               onTap: () {
-                Get.to(() => UserInfoSubmit());
+                Get.to(() => const UserInfoSubmit());
               },
               child: AccountTypeContainer(
                   image: AppImages.bride, text: 'I Want Bride'),

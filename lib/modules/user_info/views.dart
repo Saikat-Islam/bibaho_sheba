@@ -199,7 +199,7 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Text(''),
+        leading: const Text(''),
         centerTitle: true,
         title: Text(
           'Bibaho Matches',
@@ -216,12 +216,12 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Text(
                 'Find Your Suitable Match',
                 style: Theme.of(context).textTheme.displayMedium,
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
 
               //Gender Selection
 
@@ -230,7 +230,7 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                 "Profile created by",
                 style: Theme.of(context).textTheme.titleLarge,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
 
@@ -239,15 +239,15 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                 width: AppSizes.width / 3,
                 borderRadius: 10,
                 selectedIndex: _createdByIndexSelected,
-                selectedTextStyle: TextStyle(
+                selectedTextStyle: const TextStyle(
                     color: Colors.white,
                     fontSize: 18,
                     fontWeight: FontWeight.w600),
-                unSelectedTextStyle: TextStyle(
+                unSelectedTextStyle: const TextStyle(
                     color: Colors.grey,
                     fontSize: 14,
                     fontWeight: FontWeight.w400),
-                labels: <String>[
+                labels: const <String>[
                   'Self',
                   'Parent',
                   'Sibling',
@@ -268,9 +268,9 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                   });
                 },
                 marginSelected:
-                    EdgeInsets.symmetric(horizontal: 4, vertical: 4),
+                    const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
 
@@ -290,16 +290,16 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                 width: AppSizes.width / 4,
                 borderRadius: 10,
                 selectedIndex: _tabTextIndexSelected,
-                selectedTextStyle: TextStyle(
+                selectedTextStyle: const TextStyle(
                     color: Colors.white,
                     fontSize: 18,
                     fontWeight: FontWeight.w600),
-                unSelectedTextStyle: TextStyle(
+                unSelectedTextStyle: const TextStyle(
                     color: Colors.grey,
                     fontSize: 14,
                     fontWeight: FontWeight.w400),
-                labels: <String>['Male', 'Female'],
-                icons: [Icons.male, Icons.female],
+                labels: const <String>['Male', 'Female'],
+                icons: const [Icons.male, Icons.female],
                 selectedLabelIndex: (index) {
                   setState(() {
                     _tabTextIndexSelected = index;
@@ -307,9 +307,9 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                   });
                 },
                 marginSelected:
-                    EdgeInsets.symmetric(horizontal: 4, vertical: 4),
+                    const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
 
@@ -332,7 +332,7 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                       currentHeight = value;
                     });
                   }),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Row(
@@ -344,7 +344,7 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                         .labelLarge!
                         .copyWith(fontSize: 16),
                   ),
-                  Icon(
+                  const Icon(
                     Icons.star,
                     size: 10,
                   )
@@ -352,12 +352,12 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
               ),
               TextFormField(
                 controller: nameController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: "Enter Name",
                 ),
               ),
 
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               Row(
@@ -369,11 +369,11 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                           'Age',
                           style: Theme.of(context).textTheme.titleLarge,
                         ),
-                        Icon(
+                        const Icon(
                           Icons.star,
                           size: 10,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 15,
                         ),
                         Container(
@@ -381,7 +381,7 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                           height: 50,
                           decoration: BoxDecoration(
                               border: Border.all(
-                                  color: Color.fromARGB(80, 140, 137, 137)),
+                                  color: const Color.fromARGB(80, 140, 137, 137)),
                               borderRadius: BorderRadius.circular(5)),
                           child: DropdownButton<String>(
                             menuMaxHeight: AppSizes.height / 4,
@@ -419,11 +419,11 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                           'Religion',
                           style: Theme.of(context).textTheme.titleLarge,
                         ),
-                        Icon(
+                        const Icon(
                           Icons.star,
                           size: 10,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 15,
                         ),
                         Container(
@@ -431,7 +431,7 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                           height: 50,
                           decoration: BoxDecoration(
                               border: Border.all(
-                                  color: Color.fromARGB(80, 140, 137, 137)),
+                                  color: const Color.fromARGB(80, 140, 137, 137)),
                               borderRadius: BorderRadius.circular(5)),
                           child: DropdownButton<String>(
                             menuMaxHeight: AppSizes.height / 4,
@@ -470,7 +470,7 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
 
               //Choose your present address
 
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Row(
@@ -482,7 +482,7 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                         'Present District',
                         style: Theme.of(context).textTheme.titleLarge,
                       ),
-                      Icon(
+                      const Icon(
                         Icons.star,
                         size: 10,
                       )
@@ -497,7 +497,7 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                     width: AppSizes.width * 0.5,
                     decoration: BoxDecoration(
                         border: Border.all(
-                            color: Color.fromARGB(80, 140, 137, 137)),
+                            color: const Color.fromARGB(80, 140, 137, 137)),
                         borderRadius: BorderRadius.circular(5)),
                     child: DropdownButton<String>(
                       menuMaxHeight: AppSizes.height / 4,
@@ -530,7 +530,7 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
 
@@ -545,7 +545,7 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                         'Home District',
                         style: Theme.of(context).textTheme.titleLarge,
                       ),
-                      Icon(
+                      const Icon(
                         Icons.star,
                         size: 10,
                       )
@@ -560,7 +560,7 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                     width: AppSizes.width * 0.5,
                     decoration: BoxDecoration(
                         border: Border.all(
-                            color: Color.fromARGB(80, 140, 137, 137)),
+                            color: const Color.fromARGB(80, 140, 137, 137)),
                         borderRadius: BorderRadius.circular(5)),
                     child: DropdownButton<String>(
                       menuMaxHeight: AppSizes.height / 4,
@@ -593,7 +593,7 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               //Select Age
@@ -606,7 +606,7 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                         'Profession',
                         style: Theme.of(context).textTheme.titleLarge,
                       ),
-                      Icon(
+                      const Icon(
                         Icons.star,
                         size: 10,
                       )
@@ -618,7 +618,7 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                     width: AppSizes.width * 0.5,
                     decoration: BoxDecoration(
                         border: Border.all(
-                            color: Color.fromARGB(80, 140, 137, 137)),
+                            color: const Color.fromARGB(80, 140, 137, 137)),
                         borderRadius: BorderRadius.circular(5)),
                     child: DropdownButton<String>(
                       menuMaxHeight: AppSizes.height / 4,
@@ -651,7 +651,7 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
 
@@ -665,7 +665,7 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                         'Monthly Income',
                         style: Theme.of(context).textTheme.titleLarge,
                       ),
-                      Icon(
+                      const Icon(
                         Icons.star,
                         size: 10,
                       )
@@ -677,7 +677,7 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                     height: 50,
                     decoration: BoxDecoration(
                         border: Border.all(
-                            color: Color.fromARGB(80, 140, 137, 137)),
+                            color: const Color.fromARGB(80, 140, 137, 137)),
                         borderRadius: BorderRadius.circular(5)),
                     child: DropdownButton<String>(
                       menuMaxHeight: AppSizes.height / 4,
@@ -710,7 +710,7 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               Row(
@@ -722,7 +722,7 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                         'Educational Qualification',
                         style: Theme.of(context).textTheme.titleLarge,
                       ),
-                      Icon(
+                      const Icon(
                         Icons.star,
                         size: 10,
                       )
@@ -734,7 +734,7 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                     width: AppSizes.width / 3.5,
                     decoration: BoxDecoration(
                         border: Border.all(
-                            color: Color.fromARGB(80, 140, 137, 137)),
+                            color: const Color.fromARGB(80, 140, 137, 137)),
                         borderRadius: BorderRadius.circular(5)),
                     child: Padding(
                       padding: const EdgeInsets.only(right: 10.0),
@@ -770,7 +770,7 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               Row(
@@ -779,13 +779,13 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                     "Marital Status",
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
-                  Icon(
+                  const Icon(
                     Icons.star,
                     size: 10,
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
 
@@ -794,15 +794,15 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                 width: AppSizes.width / 3,
                 borderRadius: 10,
                 selectedIndex: _maritalStatusSelectedIndex,
-                selectedTextStyle: TextStyle(
+                selectedTextStyle: const TextStyle(
                     color: Colors.white,
                     fontSize: 18,
                     fontWeight: FontWeight.w600),
-                unSelectedTextStyle: TextStyle(
+                unSelectedTextStyle: const TextStyle(
                     color: Colors.grey,
                     fontSize: 14,
                     fontWeight: FontWeight.w400),
-                labels: <String>[
+                labels: const <String>[
                   'Single',
                   'Divorced',
                   'Separated',
@@ -822,13 +822,13 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                   });
                 },
                 marginSelected:
-                    EdgeInsets.symmetric(horizontal: 4, vertical: 4),
+                    const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
 
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
               CustomButton(
@@ -849,11 +849,11 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                       value: true,
                       onChanged: (value) {},
                       checkColor: Colors.white,
-                      side: BorderSide(color: Colors.grey)),
+                      side: const BorderSide(color: Colors.grey)),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       Text(
@@ -868,7 +868,7 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                         "Conditions and Privacy Policy",
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),
-                      SizedBox(height: 20)
+                      const SizedBox(height: 20)
                     ],
                   )
                 ],

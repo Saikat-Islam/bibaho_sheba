@@ -1,5 +1,4 @@
 import 'package:bibaho_sheba/core/app_colors.dart';
-import 'package:bibaho_sheba/core/app_sizes.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {

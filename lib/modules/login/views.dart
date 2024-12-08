@@ -28,35 +28,36 @@ class LoginScreen extends GetView<LoginController> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               SizedBox(
                   height: AppSizes.width / 3,
                   width: AppSizes.width,
                   child: Image(image: AssetImage(AppImages.appLogo))),
-              CustomBibahoShebaText(),
-              SizedBox(
+              const CustomBibahoShebaText(),
+              const SizedBox(
                 height: 20,
               ),
               InkWell(
                 onTap: () async {
-                  try {
-                    UserCredential userCredential =
-                        await controller.signInWithGoogle();
-                    // Navigate to the home page or desired screen
-                    Get.toNamed(Routes.FUCKING_SCREEN);
-                  } catch (e) {
-                    // Handle errors
-                    print('Error signing in with Google: $e');
-                  }
+                  // try {
+                  //   print("continue with google");
+                  //   UserCredential userCredential =
+                  //       await controller.signInWithGoogle();
+                  //   // Navigate to the home page or desired screen
+                  //   Get.toNamed(Routes.FUCKING_SCREEN);
+                  // } catch (e) {
+                  //   // Handle errors
+                  //   print('Error signing in with Google: $e');
+                  // }
                 },
                 child: LoginMethodContainer(
                   text: 'Continue with Google',
                   image: AppImages.google,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               InkWell(
@@ -67,20 +68,20 @@ class LoginScreen extends GetView<LoginController> {
                   image: AppImages.facebook,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
-              CustomDivider(),
-              SizedBox(
+              const CustomDivider(),
+              const SizedBox(
                 height: 15,
               ),
               TextFormField(
                 controller: controller.emailController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: "E-mail ID / Matrimony ID",
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               Obx(
@@ -92,14 +93,14 @@ class LoginScreen extends GetView<LoginController> {
                       suffixIcon: IconButton(
                           onPressed: controller.showPassword,
                           icon: controller.isPasswordHidden.value
-                              ? Icon(
+                              ? const Icon(
                                   Iconsax.eye_slash5,
                                   color: Colors.black,
                                 )
-                              : Icon(Iconsax.eye4, color: Colors.black))),
+                              : const Icon(Iconsax.eye4, color: Colors.black))),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               InkWell(
@@ -113,7 +114,7 @@ class LoginScreen extends GetView<LoginController> {
                         .bodyLarge!
                         .copyWith(color: Colors.redAccent),
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               CustomButton(
@@ -122,7 +123,7 @@ class LoginScreen extends GetView<LoginController> {
                 height: 45,
                 width: AppSizes.width,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               SizedBox(
@@ -132,7 +133,7 @@ class LoginScreen extends GetView<LoginController> {
                   thickness: 1.0,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Row(
@@ -144,7 +145,7 @@ class LoginScreen extends GetView<LoginController> {
                   ),
                   InkWell(
                     onTap: () {
-                      Get.to(() => SignupScreen());
+                      Get.to(() => const SignupScreen());
                     },
                     child: Text('Sign up',
                         style: Theme.of(context)
@@ -154,7 +155,7 @@ class LoginScreen extends GetView<LoginController> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Row(
@@ -203,7 +204,7 @@ class LoginMethodContainer extends StatelessWidget {
       width: width,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
-          border: Border.all(color: Color.fromARGB(80, 140, 137, 137))),
+          border: Border.all(color: const Color.fromARGB(80, 140, 137, 137))),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(

@@ -1,13 +1,4 @@
-import 'package:bibaho_sheba/data/auth_controllers.dart';
-import 'package:bibaho_sheba/common/full_screen_loader.dart';
-import 'package:bibaho_sheba/core/network_manager.dart';
-import 'package:bibaho_sheba/data/models.dart';
-import 'package:bibaho_sheba/routes/app_pages.dart';
-import 'package:bibaho_sheba/utils/errors/firebase_auth_exception.dart';
-import 'package:bibaho_sheba/utils/errors/show_error_message.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';

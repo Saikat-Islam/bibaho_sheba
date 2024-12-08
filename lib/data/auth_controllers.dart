@@ -13,7 +13,7 @@ class AuthRepository extends GetxController {
   static AuthRepository get instanse => Get.find();
 
   final deviceStorage = GetStorage();
-  FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
   GoogleSignIn googleSignin = GoogleSignIn(scopes: ["email"]);
   // Rx<User> _firebaseUser = Rx<User>();
 

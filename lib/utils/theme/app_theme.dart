@@ -19,9 +19,9 @@ class AppTheme {
         ),
       ),
       chipTheme: ChipThemeData(
-          side: BorderSide(color: Colors.white),
+          side: const BorderSide(color: Colors.white),
           padding: EdgeInsets.zero,
-          labelPadding: EdgeInsets.symmetric(horizontal: 5),
+          labelPadding: const EdgeInsets.symmetric(horizontal: 5),
           backgroundColor: AppColors.primaryColor.withOpacity(0.5),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
@@ -55,7 +55,7 @@ class AppTheme {
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
               backgroundColor: AppColors.primaryColor,
-              textStyle: TextStyle(color: Colors.white))),
+              textStyle: const TextStyle(color: Colors.white))),
       inputDecorationTheme: InputDecorationTheme(
         border: const OutlineInputBorder().copyWith(
             borderRadius: BorderRadius.circular(5),
@@ -127,7 +127,7 @@ class AppTheme {
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
               backgroundColor: AppColors.primaryColor,
-              textStyle: TextStyle(color: Colors.white))),
+              textStyle: const TextStyle(color: Colors.white))),
       outlinedButtonTheme: OutlinedButtonThemeData(
           style: OutlinedButton.styleFrom(
               side: BorderSide(color: AppColors.primaryColor))),

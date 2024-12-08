@@ -12,7 +12,20 @@
           "package_name": "com.example.bibaho_sheba"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "678664219518-rn9nsuv2mco9tu8m2rbvocimqpjksp1j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bibaho_sheba",
+            "certificate_hash": "8cc94c84ac0efa17153463e0c95d104acd7a24c5"
+          }
+        },
+        {
+          "client_id": "678664219518-8bfb3hdm2r1a30ru384d85nl2lk4br4o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCHgH2kbS1x3XFedEhZpvlUvmuWish_slw"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "678664219518-5h72p9ktfec27137o51bn3kt61f96kpg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "678664219518-1770u0elcgpthe66avfs4vkl1gab1jee.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.bibahoSheba"
+              }
+            }
+          ]
         }
       }
     }

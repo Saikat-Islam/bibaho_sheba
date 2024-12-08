@@ -8,5 +8,5 @@ class AppColors {
 
   static Color red = Colors.red;
   static Color green = Colors.green;
-  static Color scaffoldBgColor = Color.fromARGB(255, 248, 239, 229);
+  static Color scaffoldBgColor = const Color.fromARGB(255, 248, 239, 229);
 }

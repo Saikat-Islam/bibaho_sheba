@@ -11,9 +11,9 @@ class NavigationMenuController extends GetxController {
 
   final screens = [
     // AccountSettingsScreen(),
-    MainHomePage(),
-    UserProfile(),
-    LiveNowPage(),
-    NotificationsScreen()
+    const MainHomePage(),
+    const UserProfile(),
+    const LiveNowPage(),
+    const NotificationsScreen()
   ];
 }
