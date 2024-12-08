@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "678664219518",
+    "project_id": "bibaho-sheba-c7874",
+    "storage_bucket": "bibaho-sheba-c7874.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:678664219518:android:529a1f6e8f3bf1285d212f",
+        "android_client_info": {
+          "package_name": "com.example.bibaho_sheba"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHgH2kbS1x3XFedEhZpvlUvmuWish_slw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
