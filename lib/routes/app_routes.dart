@@ -11,7 +11,7 @@ class Routes {
   static const RESET_PASSWORD = _Paths.RESET_PASSWORD;
   static const RESET_CODE = _Paths.RESET_CODE;
   static const SIGNUP = _Paths.SIGNUP;
-  static const FUCKING_SCREEN = _Paths.FUCKING_SCREEN;
+  static const SIGNING_UP = _Paths.SIGNING_UP;
   static const ACCOUNT_AND_SETTINGS = _Paths.ACCOUNT_AND_SETTINGS;
   static const ZOOM_DRAWER = _Paths.ZOOM_DRAWER;
   static const USER_PROFILE = _Paths.USER_PROFILE;
@@ -32,7 +32,7 @@ abstract class _Paths {
   static const SIGNUP = '/signup';
   static const RESET_PASSWORD = '/reset_password';
   static const RESET_CODE = '/reset_code';
-  static const FUCKING_SCREEN = '/fucking_screen';
+  static const SIGNING_UP = '/signing_up';
   static const ACCOUNT_AND_SETTINGS = '/account_and_settings';
   static const ZOOM_DRAWER = '/zoom_drawer';
   static const USER_PROFILE = '/user_profile';

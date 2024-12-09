@@ -4,7 +4,7 @@ import 'package:bibaho_sheba/modules/filtering/bindings.dart';
 import 'package:bibaho_sheba/modules/filtering/views.dart';
 import 'package:bibaho_sheba/modules/forget_password/bindings.dart';
 import 'package:bibaho_sheba/modules/forget_password/view.dart';
-import 'package:bibaho_sheba/modules/fucking_data/views.dart';
+import 'package:bibaho_sheba/modules/signingup_data/views.dart';
 import 'package:bibaho_sheba/modules/live_now/bindings.dart';
 import 'package:bibaho_sheba/modules/live_now/views.dart';
 import 'package:bibaho_sheba/modules/main/bindings.dart';
@@ -57,7 +57,7 @@ class AppPages {
         name: _Paths.RESET_CODE,
         page: () => const ResetCode(),
         binding: ForgetPasswordBindings()),
-    GetPage(name: _Paths.FUCKING_SCREEN, page: () => const FuckingScreen()),
+    GetPage(name: _Paths.SIGNING_UP, page: () => const SigningUP(),binding: SignupBindings()),
     
         GetPage(
         name: _Paths.MAIN_PAGE,

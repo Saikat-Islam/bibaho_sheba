@@ -5,7 +5,7 @@ import 'package:bibaho_sheba/core/app_colors.dart';
 import 'package:bibaho_sheba/core/app_images.dart';
 import 'package:bibaho_sheba/core/app_sizes.dart';
 import 'package:bibaho_sheba/modules/forget_password/view.dart';
-import 'package:bibaho_sheba/modules/fucking_data/views.dart';
+import 'package:bibaho_sheba/modules/signingup_data/views.dart';
 import 'package:bibaho_sheba/modules/login/controller.dart';
 import 'package:bibaho_sheba/modules/signup/views.dart';
 import 'package:bibaho_sheba/routes/app_pages.dart';

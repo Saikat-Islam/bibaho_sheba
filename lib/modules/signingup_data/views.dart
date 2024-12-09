@@ -4,15 +4,15 @@ import 'package:bibaho_sheba/common/custom_btn.dart';
 import 'package:bibaho_sheba/core/app_colors.dart';
 import 'package:bibaho_sheba/core/app_images.dart';
 import 'package:bibaho_sheba/core/app_sizes.dart';
-import 'package:bibaho_sheba/modules/fucking_data/controller.dart';
+import 'package:bibaho_sheba/modules/signingup_data/controller.dart';
 import 'package:bibaho_sheba/modules/user_info/views.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
-class FuckingScreen extends GetView<FuckingController> {
-  const FuckingScreen({super.key});
+class SigningUP extends GetView<SigningUpController> {
+  const SigningUP({super.key});
 
   @override
   Widget build(BuildContext context) {
