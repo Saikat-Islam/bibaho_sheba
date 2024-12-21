@@ -10,6 +10,8 @@ class Routes {
   static const FORGET_PASSWORD = _Paths.FORGET_PASSWORD;
   static const RESET_PASSWORD = _Paths.RESET_PASSWORD;
   static const RESET_CODE = _Paths.RESET_CODE;
+  static const CREATE_AGENT = _Paths.CREATE_AGENT;
+  static const AGENT_DASHBOARD = _Paths.AGENT_DASHBOARD;
   // static const SIGNUP = _Paths.SIGNUP;
   static const SIGNING_UP = _Paths.SIGNING_UP;
   static const ACCOUNT_AND_SETTINGS = _Paths.ACCOUNT_AND_SETTINGS;
@@ -21,7 +23,6 @@ class Routes {
   static const NAVIGATION_MENU = _Paths.NAVIGATION_MENU;
   static const USERINFO_SUBMIT = _Paths.USERINFO_SUBMIT;
   // static const SIGNINGUP = _Paths.SIGNINGUP;
-  
 }
 
 abstract class _Paths {
@@ -43,4 +44,6 @@ abstract class _Paths {
   static const NOTIFICATIONS_PAGE = "/notifications_page";
   static const NAVIGATION_MENU = "/navigation_menu";
   static const USERINFO_SUBMIT = "/userinfo_submit";
+  static const CREATE_AGENT = "/create_agent";
+  static const AGENT_DASHBOARD = "/agent_dashboard";
 }

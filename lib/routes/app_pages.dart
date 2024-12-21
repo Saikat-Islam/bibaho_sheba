@@ -1,3 +1,7 @@
+import 'package:bibaho_sheba/modules/agent/bindings.dart';
+import 'package:bibaho_sheba/modules/agent/views.dart';
+import 'package:bibaho_sheba/modules/agent_dashboard/bindings.dart';
+import 'package:bibaho_sheba/modules/agent_dashboard/views.dart';
 import 'package:bibaho_sheba/modules/chats/bindings.dart';
 import 'package:bibaho_sheba/modules/chats/views.dart';
 import 'package:bibaho_sheba/modules/filtering/bindings.dart';
@@ -62,8 +66,16 @@ class AppPages {
         binding: ForgetPasswordBindings()),
     GetPage(
         name: _Paths.SIGNING_UP,
-        page: () =>  SignupScreen(),
+        page: () => SignupScreen(),
         binding: SignupBindings()),
+    GetPage(
+        name: _Paths.CREATE_AGENT,
+        page: () => const CreateAgentView(),
+        binding: CreateAgentBindings()),
+    GetPage(
+        name: _Paths.AGENT_DASHBOARD,
+        page: () => const AgentDashboard(),
+        binding: AgentDashboardBindings()),
     GetPage(
         name: _Paths.MAIN_PAGE,
         page: () => const MainHomePage(),

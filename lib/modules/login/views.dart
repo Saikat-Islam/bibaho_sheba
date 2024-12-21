@@ -43,7 +43,7 @@ class LoginScreen extends GetView<LoginController> {
                   //   UserCredential userCredential =
                   //       await controller.signInWithGoogle();
                   //   // Navigate to the home page or desired screen
-                    // Get.toNamed(Routes.FUCKING_SCREEN);
+                  // Get.toNamed(Routes.FUCKING_SCREEN);
                   // } catch (e) {
                   //   // Handle errors
                   //   print('Error signing in with Google: $e');
@@ -114,21 +114,21 @@ class LoginScreen extends GetView<LoginController> {
               const SizedBox(
                 height: 10,
               ),
-               Obx(() {
+              Obx(() {
                 return controller.isLoading.value
                     ? const Center(
-                        child:
-                            CircularProgressIndicator(
-                              color: Colors.green,
-                            )) // Show loader if loading
-                    :  CustomButton(
-                text: "LOGIN",
-                ontap: () {
-                  controller.loginUsesr();
-                },
-                height: 45,
-                width: AppSizes.width,
-              );}),
+                        child: CircularProgressIndicator(
+                        color: Colors.green,
+                      )) // Show loader if loading
+                    : CustomButton(
+                        text: "LOGIN",
+                        ontap: () {
+                          controller.loginUsesr();
+                        },
+                        height: 45,
+                        width: AppSizes.width,
+                      );
+              }),
               const SizedBox(
                 height: 10,
               ),
@@ -151,7 +151,7 @@ class LoginScreen extends GetView<LoginController> {
                   ),
                   InkWell(
                     onTap: () {
-                      Get.to(()=>SignupScreen());
+                      Get.to(() => SignupScreen());
                     },
                     child: Text('Sign up',
                         style: Theme.of(context)
@@ -172,7 +172,9 @@ class LoginScreen extends GetView<LoginController> {
                     style: Theme.of(context).textTheme.bodyLarge,
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Get.toNamed(Routes.CREATE_AGENT);
+                    },
                     child: Text('Create Agent',
                         style: Theme.of(context)
                             .textTheme
