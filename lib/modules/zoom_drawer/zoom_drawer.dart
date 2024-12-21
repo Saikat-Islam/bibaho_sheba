@@ -2,13 +2,16 @@ import 'package:bibaho_sheba/common/custom_btn.dart';
 import 'package:bibaho_sheba/core/app_colors.dart';
 import 'package:bibaho_sheba/core/app_images.dart';
 import 'package:bibaho_sheba/core/app_sizes.dart';
-import 'package:bibaho_sheba/modules/main/views.dart';
 import 'package:bibaho_sheba/modules/navigation_menu/views.dart';
 import 'package:bibaho_sheba/modules/settings/views.dart';
 import 'package:bibaho_sheba/modules/zoom_drawer/controllers.dart';
+import 'package:bibaho_sheba/routes/app_pages.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
 
 class ZomDrawer extends GetView<ZomDrawerController> {
@@ -29,9 +32,39 @@ class ZomDrawer extends GetView<ZomDrawerController> {
   }
 }
 
-class MenuScreen extends StatelessWidget {
+class MenuScreen extends StatefulWidget {
   const MenuScreen({super.key});
 
+  @override
+  State<MenuScreen> createState() => _MenuScreenState();
+}
+
+class _MenuScreenState extends State<MenuScreen> {
+    late String _currentUserName = '';
+  // late String _currentUserEmail = '';
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
+    @override
+  void initState() {
+    super.initState();
+    _getCurrentUserData();
+  }
+
+  Future<void> _getCurrentUserData() async {
+    try {
+      String uid = FirebaseAuth.instance.currentUser!.uid;
+      DocumentSnapshot userSnapshot =
+          await _firestore.collection('users').doc(uid).get();
+
+      setState(() {
+        // _currentUserImageUrl = userSnapshot['image_url'] ?? '';
+        _currentUserName = userSnapshot['name'] ?? '';
+        // _currentUserEmail = userSnapshot['email'] ?? '';
+      });
+    } catch (e) {
+      print('Error fetching user data: $e');
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,22 +93,34 @@ class MenuScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                   image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: AssetImage(AppImages.profileImage)),
+                      // image: AssetImage(AppImages.profileImage)
+                      image: NetworkImage(FirebaseAuth
+                              .instance.currentUser?.photoURL
+                              .toString() ??
+                          '')),
                   borderRadius: BorderRadius.circular(100),
                 ),
               ),
-              title: const Text('UUID12345'),
+              // title: const Text('UUID12345'),
+              // title: Text(
+              //     FirebaseAuth.instance.currentUser?.displayName.toString() ??
+              //         ''),
+
+              title: Text(_currentUserName),
               titleTextStyle: Theme.of(context)
                   .textTheme
                   .headlineSmall!
-                  .copyWith(fontWeight: FontWeight.bold),
-              subtitleTextStyle: Theme.of(context).textTheme.bodyLarge,
+                  .copyWith(fontWeight: FontWeight.bold, fontSize: 17),
+              subtitleTextStyle:
+                  Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 14),
               subtitle: InkWell(
-                onTap: () {},
+                onTap: () {
+                  
+                },
                 child: Row(
                   children: [
                     const Text('Edit Profile'),
-                    Icon(Icons.edit, size: 20, color: AppColors.primaryColor)
+                    Icon(Icons.edit, size: 18, color: AppColors.primaryColor)
                   ],
                 ),
               ),
@@ -128,6 +173,68 @@ class MenuScreen extends StatelessWidget {
               },
               icon: Icons.help_center,
               text: 'Help & Support',
+            ),
+            DrawerCustomListTile(
+              ontap: () {
+                showDialog(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                          backgroundColor: Colors.white,
+                          title: Text(
+                            "Are you sure?",
+                            style: GoogleFonts.kameron(
+                              textStyle: const TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.w500),
+                            ),
+                          ),
+                          content: Text(
+                            "Click Confirm if you want to Log out of the app",
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.kameron(
+                                textStyle: const TextStyle(
+                              fontSize: 14,
+                            )),
+                          ),
+                          actions: [
+                            GestureDetector(
+                                onTap: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Container(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 12, vertical: 7),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(4),
+                                    color: Colors.red,
+                                  ),
+                                  child: Text("Cancel",
+                                      style: GoogleFonts.kameron(
+                                          textStyle: const TextStyle(
+                                              color: Colors.white))),
+                                )),
+                            GestureDetector(
+                                onTap: () async {
+                                  await FirebaseAuth.instance.signOut();
+                                  Get.offAllNamed(Routes.LOGIN);
+                                },
+                                child: Container(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 12, vertical: 7),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(4),
+                                    color: const Color(0xFF2C663D),
+                                  ),
+                                  child: Text("Confirm",
+                                      style: GoogleFonts.kameron(
+                                        textStyle: const TextStyle(
+                                            color: Colors.white),
+                                      )),
+                                ))
+                          ],
+                        ));
+              },
+              icon: Icons.logout,
+              text: 'Logout',
             ),
             SizedBox(
               height: AppSizes.height / 5,

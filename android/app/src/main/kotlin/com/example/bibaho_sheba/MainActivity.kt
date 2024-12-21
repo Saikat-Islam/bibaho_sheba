@@ -1,4 +1,4 @@
-package com.example.bibaho_sheba
+package com.bibaho_sheba.app
 
 import io.flutter.embedding.android.FlutterActivity
 

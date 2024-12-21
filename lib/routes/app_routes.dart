@@ -10,7 +10,7 @@ class Routes {
   static const FORGET_PASSWORD = _Paths.FORGET_PASSWORD;
   static const RESET_PASSWORD = _Paths.RESET_PASSWORD;
   static const RESET_CODE = _Paths.RESET_CODE;
-  static const SIGNUP = _Paths.SIGNUP;
+  // static const SIGNUP = _Paths.SIGNUP;
   static const SIGNING_UP = _Paths.SIGNING_UP;
   static const ACCOUNT_AND_SETTINGS = _Paths.ACCOUNT_AND_SETTINGS;
   static const ZOOM_DRAWER = _Paths.ZOOM_DRAWER;
@@ -19,6 +19,8 @@ class Routes {
   static const FILTERING_PROFILE = _Paths.FILTERING_PROFILE;
   static const NOTIFICATIONS_PAGE = _Paths.NOTIFICATIONS_PAGE;
   static const NAVIGATION_MENU = _Paths.NAVIGATION_MENU;
+  static const USERINFO_SUBMIT = _Paths.USERINFO_SUBMIT;
+  // static const SIGNINGUP = _Paths.SIGNINGUP;
   
 }
 
@@ -40,4 +42,5 @@ abstract class _Paths {
   static const FILTERING_PROFILE = "/filtering_profiles";
   static const NOTIFICATIONS_PAGE = "/notifications_page";
   static const NAVIGATION_MENU = "/navigation_menu";
+  static const USERINFO_SUBMIT = "/userinfo_submit";
 }

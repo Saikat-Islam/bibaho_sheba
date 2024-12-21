@@ -2,22 +2,30 @@ import 'package:bibaho_sheba/common/account_type_container.dart';
 import 'package:bibaho_sheba/common/custom_bibaho_sheba.dart';
 import 'package:bibaho_sheba/common/custom_btn.dart';
 import 'package:bibaho_sheba/core/app_colors.dart';
-import 'package:bibaho_sheba/core/app_images.dart';
 import 'package:bibaho_sheba/core/app_sizes.dart';
 import 'package:bibaho_sheba/modules/signingup_data/controller.dart';
 import 'package:bibaho_sheba/modules/user_info/views.dart';
+import 'package:bibaho_sheba/routes/app_pages.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
-class SigningUP extends GetView<SigningUpController> {
-  const SigningUP({super.key});
+class SigningUP extends StatefulWidget {
+  final String? email;
+  final String? name;
+  const SigningUP(this.email, this.name, {super.key});
 
   @override
+  State<SigningUP> createState() => _SigningUPState();
+}
+
+class _SigningUPState extends State<SigningUP> {
+  SigningUpController signingUpController=Get.put(SigningUpController());
+  @override
   Widget build(BuildContext context) {
-    final FirebaseAuth auth = FirebaseAuth.instance;
-    final user = auth.currentUser;
+    // final FirebaseAuth auth = FirebaseAuth.instance;
+    // final user = auth.currentUser;
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -46,7 +54,7 @@ class SigningUP extends GetView<SigningUpController> {
             const SizedBox(
               height: 10,
             ),
-            Image(height: 50, image: NetworkImage(user?.photoURL ?? ''),),
+            // Image(height: 50, image: NetworkImage(user?.photoURL ?? ''),),
             const SizedBox(
               height: 10,
             ),
@@ -56,7 +64,7 @@ class SigningUP extends GetView<SigningUpController> {
                 style: Theme.of(context).textTheme.titleLarge,
               ),
               Text(
-                "${user?.displayName ?? 'User'}!",
+                "${widget.name ?? 'User'}!",
                 style: Theme.of(context).textTheme.titleLarge!.copyWith(
                     color: AppColors.primaryColor, fontWeight: FontWeight.bold),
               ),
@@ -89,7 +97,7 @@ class SigningUP extends GetView<SigningUpController> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Text(
-                          user?.email ?? 'No email',
+                         widget.email ?? 'No email',
                           style: Theme.of(context)
                               .textTheme
                               .bodyLarge!
@@ -149,7 +157,8 @@ class SigningUP extends GetView<SigningUpController> {
                   width: double.infinity,
                   text: 'Join Bibaho Sheba',
                   ontap: () {
-                    Get.to(() => const SelectType());
+                    // Get.toNamed(Routes.USERINFO_SUBMIT);
+                    Get.to(()=>UserInfoSubmit(name: widget.name,email: widget.email,));
                   }),
             )
           ],
@@ -159,8 +168,16 @@ class SigningUP extends GetView<SigningUpController> {
   }
 }
 
-class SelectType extends StatelessWidget {
+class SelectType extends StatefulWidget {
   const SelectType({super.key});
+
+  @override
+  State<SelectType> createState() => _SelectTypeState();
+}
+
+class _SelectTypeState extends State<SelectType> {
+  final SigningUpController signingUpController = Get.put(SigningUpController());
+  String? selectedType;
 
   @override
   Widget build(BuildContext context) {
@@ -179,8 +196,13 @@ class SelectType extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   IconButton(
-                      onPressed: Get.back, icon: const Icon(Iconsax.arrow_left)),
-                  const CustomBibahoShebaText()
+                    onPressed: Get.back,
+                    icon: const Icon(Icons.arrow_back),
+                  ),
+                  const Text(
+                    "Bibaho Sheba",
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
                 ],
               ),
             ),
@@ -200,20 +222,32 @@ class SelectType extends StatelessWidget {
             ),
             InkWell(
               onTap: () {
-                Get.to(() => const UserInfoSubmit());
+                setState(() {
+                  selectedType = 'Groom';
+                });
+                signingUpController.saveAccountType('Groom');
               },
               child: AccountTypeContainer(
-                  image: AppImages.groom, text: 'I Want Groom'),
+                image: 'assets/images/groom.png',
+                text: 'I Want Groom',
+                isSelected: selectedType == 'Groom',
+              ),
             ),
             const SizedBox(
               height: 20,
             ),
             InkWell(
               onTap: () {
-                Get.to(() => const UserInfoSubmit());
+                setState(() {
+                  selectedType = 'Bride';
+                });
+                signingUpController.saveAccountType('Bride');
               },
               child: AccountTypeContainer(
-                  image: AppImages.bride, text: 'I Want Bride'),
+                image: 'assets/images/bride.png',
+                text: 'I Want Bride',
+                isSelected: selectedType == 'Bride',
+              ),
             ),
           ],
         ),

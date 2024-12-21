@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 class Global {
   static Future<void> initializer() async {
     WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform).then((FirebaseApp value)=> Get.put(AuthRepository()));
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.android).then((FirebaseApp value)=> Get.put(AuthRepository()));
   // await FirebaseAppCheck.instance.activate(
   //   // You can also use a `ReCaptchaEnterpriseProvider` provider instance as an
   //   // argument for `webProvider`

@@ -4,15 +4,11 @@ import 'package:bibaho_sheba/common/custom_divider.dart';
 import 'package:bibaho_sheba/core/app_colors.dart';
 import 'package:bibaho_sheba/core/app_images.dart';
 import 'package:bibaho_sheba/core/app_sizes.dart';
-import 'package:bibaho_sheba/modules/forget_password/view.dart';
-import 'package:bibaho_sheba/modules/signingup_data/views.dart';
 import 'package:bibaho_sheba/modules/login/controller.dart';
 import 'package:bibaho_sheba/modules/signup/views.dart';
 import 'package:bibaho_sheba/routes/app_pages.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
 
 class LoginScreen extends GetView<LoginController> {
@@ -41,12 +37,13 @@ class LoginScreen extends GetView<LoginController> {
               ),
               InkWell(
                 onTap: () async {
+                  controller.loginWithGoogle();
                   // try {
                   //   print("continue with google");
                   //   UserCredential userCredential =
                   //       await controller.signInWithGoogle();
                   //   // Navigate to the home page or desired screen
-                  //   Get.toNamed(Routes.FUCKING_SCREEN);
+                    // Get.toNamed(Routes.FUCKING_SCREEN);
                   // } catch (e) {
                   //   // Handle errors
                   //   print('Error signing in with Google: $e');
@@ -117,12 +114,21 @@ class LoginScreen extends GetView<LoginController> {
               const SizedBox(
                 height: 10,
               ),
-              CustomButton(
+               Obx(() {
+                return controller.isLoading.value
+                    ? const Center(
+                        child:
+                            CircularProgressIndicator(
+                              color: Colors.green,
+                            )) // Show loader if loading
+                    :  CustomButton(
                 text: "LOGIN",
-                ontap: () {},
+                ontap: () {
+                  controller.loginUsesr();
+                },
                 height: 45,
                 width: AppSizes.width,
-              ),
+              );}),
               const SizedBox(
                 height: 10,
               ),
@@ -145,7 +151,7 @@ class LoginScreen extends GetView<LoginController> {
                   ),
                   InkWell(
                     onTap: () {
-                      Get.to(() => const SignupScreen());
+                      Get.to(()=>SignupScreen());
                     },
                     child: Text('Sign up',
                         style: Theme.of(context)

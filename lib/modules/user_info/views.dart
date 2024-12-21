@@ -2,36 +2,63 @@ import 'package:bibaho_sheba/common/custom_btn.dart';
 import 'package:bibaho_sheba/core/app_colors.dart';
 import 'package:bibaho_sheba/core/app_sizes.dart';
 import 'package:bibaho_sheba/modules/user_info/controllers.dart';
-import 'package:bibaho_sheba/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_toggle_tab/flutter_toggle_tab.dart';
 import 'package:get/get.dart';
-import 'package:iconsax/iconsax.dart';
 
 class UserInfoSubmit extends StatefulWidget {
-  const UserInfoSubmit({super.key});
+  final String? email;
+  final String? name;
+  const UserInfoSubmit({super.key,  this.email,  this.name});
 
   @override
   State<UserInfoSubmit> createState() => _UserInfoSubmitState();
 }
 
 class _UserInfoSubmitState extends State<UserInfoSubmit> {
-  var _tabTextIndexSelected = 0;
-  var _createdByIndexSelected = 0;
-  var _maritalStatusSelectedIndex = 0;
+  // var _tabTextIndexSelected = 'Male';
+  // var _createdByIndex = 'Self';
+  // var _maritalStatusSelectedIndex = 'Single';
+  String selectedRegion = "Muslim";
+
   double currentHeight = 5.8;
-  String selected = "Muslim";
+
+    String _createdByText = 'Self';
+  String _genderText = 'Male';
+  String _maritalStatusText = 'Single';
+
+  final List<String> createdByLabels = [
+    'Self',
+    'Parent',
+    'Sibling',
+    'Relative',
+    'Friend'
+  ];
+  final List<String> genderLabels = ['Male', 'Female'];
+  final List<String> maritalStatusLabels = [
+    'Single',
+    'Divorced',
+    'Separated',
+    'Widower'
+  ];
 
   void setSelected(String value) {
     setState(() {
-      selected = value;
+      selectedRegion = value;
     });
   }
 
-  String distSelectDefault = "Dhaka";
+  String homeDistrict = "Dhaka";
   void distSelected(String value) {
     setState(() {
-      distSelectDefault = value;
+      homeDistrict = value;
+    });
+  }
+
+  String presentDistrict = "Dhaka";
+  void presentDistSelected(String value) {
+    setState(() {
+      presentDistrict = value;
     });
   }
 
@@ -195,6 +222,7 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
     "Sylhet"
   ];
   final TextEditingController nameController = TextEditingController();
+  UserInfoController userInfoController = Get.put(UserInfoController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -234,42 +262,29 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                 height: 10,
               ),
 
-              FlutterToggleTab(
-                selectedBackgroundColors: [AppColors.secondaryColor],
-                width: AppSizes.width / 3,
-                borderRadius: 10,
-                selectedIndex: _createdByIndexSelected,
-                selectedTextStyle: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600),
-                unSelectedTextStyle: const TextStyle(
-                    color: Colors.grey,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400),
-                labels: const <String>[
-                  'Self',
-                  'Parent',
-                  'Sibling',
-                  'Relative',
-                  'Friend'
-                ],
-                // icons: [
-                //   Icons.male,
-                //   Icons.female,
-                //   Icons.male,
-                //   Icons.female,
-                //   Icons.male
-                // ],
-                selectedLabelIndex: (index) {
-                  setState(() {
-                    _createdByIndexSelected = index;
-                    print(_createdByIndexSelected);
-                  });
-                },
-                marginSelected:
-                    const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
+            FlutterToggleTab(
+              selectedBackgroundColors: [AppColors.secondaryColor],
+              width: MediaQuery.of(context).size.width / 3,
+              borderRadius: 10,
+              selectedIndex: createdByLabels.indexOf(_createdByText),
+              selectedTextStyle: const TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
               ),
+              unSelectedTextStyle: const TextStyle(
+                color: Colors.grey,
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+              ),
+              labels: createdByLabels,
+              selectedLabelIndex: (index) {
+                setState(() {
+                  _createdByText = createdByLabels[index];
+                });
+              },
+              marginSelected: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
+            ),
               const SizedBox(
                 height: 20,
               ),
@@ -285,30 +300,30 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                     .labelLarge!
                     .copyWith(color: Colors.grey, fontSize: 16),
               ),
-              FlutterToggleTab(
-                selectedBackgroundColors: [AppColors.secondaryColor],
-                width: AppSizes.width / 4,
-                borderRadius: 10,
-                selectedIndex: _tabTextIndexSelected,
-                selectedTextStyle: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600),
-                unSelectedTextStyle: const TextStyle(
-                    color: Colors.grey,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400),
-                labels: const <String>['Male', 'Female'],
-                icons: const [Icons.male, Icons.female],
-                selectedLabelIndex: (index) {
-                  setState(() {
-                    _tabTextIndexSelected = index;
-                    print(_tabTextIndexSelected);
-                  });
-                },
-                marginSelected:
-                    const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
+           FlutterToggleTab(
+              selectedBackgroundColors: [AppColors.secondaryColor],
+              width: MediaQuery.of(context).size.width / 4,
+              borderRadius: 10,
+              selectedIndex: genderLabels.indexOf(_genderText),
+              selectedTextStyle: const TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
               ),
+              icons: const [Icons.male, Icons.female],   
+              unSelectedTextStyle: const TextStyle(
+                color: Colors.grey,
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+              ),
+              labels: genderLabels,
+              selectedLabelIndex: (index) {
+                setState(() {
+                  _genderText = genderLabels[index];
+                });
+              },
+              marginSelected: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
+            ),
               const SizedBox(
                 height: 20,
               ),
@@ -350,16 +365,16 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                   )
                 ],
               ),
-              TextFormField(
-                controller: nameController,
-                decoration: const InputDecoration(
-                  hintText: "Enter Name",
-                ),
-              ),
+              // TextFormField(
+              //   controller: nameController,
+              //   decoration: const InputDecoration(
+              //     hintText: "Enter Name",
+              //   ),
+              // ),
 
-              const SizedBox(
-                height: 15,
-              ),
+              // const SizedBox(
+              //   height: 15,
+              // ),
               Row(
                 children: [
                   SizedBox(
@@ -381,7 +396,8 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                           height: 50,
                           decoration: BoxDecoration(
                               border: Border.all(
-                                  color: const Color.fromARGB(80, 140, 137, 137)),
+                                  color:
+                                      const Color.fromARGB(80, 140, 137, 137)),
                               borderRadius: BorderRadius.circular(5)),
                           child: DropdownButton<String>(
                             menuMaxHeight: AppSizes.height / 4,
@@ -431,7 +447,8 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                           height: 50,
                           decoration: BoxDecoration(
                               border: Border.all(
-                                  color: const Color.fromARGB(80, 140, 137, 137)),
+                                  color:
+                                      const Color.fromARGB(80, 140, 137, 137)),
                               borderRadius: BorderRadius.circular(5)),
                           child: DropdownButton<String>(
                             menuMaxHeight: AppSizes.height / 4,
@@ -449,7 +466,7 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                             onChanged: (newValue) {
                               setSelected(newValue!);
                             },
-                            value: selected,
+                            value: selectedRegion,
                             items: religions.map((selectedType) {
                               return DropdownMenuItem(
                                 alignment: Alignment.center,
@@ -513,9 +530,9 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),
                       onChanged: (newValue) {
-                        distSelected(newValue!);
+                        presentDistSelected(newValue!);
                       },
-                      value: distSelectDefault,
+                      value: presentDistrict,
                       items: districts.map((selectedType) {
                         return DropdownMenuItem(
                           alignment: Alignment.center,
@@ -578,7 +595,7 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                       onChanged: (newValue) {
                         distSelected(newValue!);
                       },
-                      value: distSelectDefault,
+                      value: homeDistrict,
                       items: districts.map((selectedType) {
                         return DropdownMenuItem(
                           alignment: Alignment.center,
@@ -789,41 +806,31 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
                 height: 10,
               ),
 
-              FlutterToggleTab(
-                selectedBackgroundColors: [AppColors.secondaryColor],
-                width: AppSizes.width / 3,
-                borderRadius: 10,
-                selectedIndex: _maritalStatusSelectedIndex,
-                selectedTextStyle: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600),
-                unSelectedTextStyle: const TextStyle(
-                    color: Colors.grey,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400),
-                labels: const <String>[
-                  'Single',
-                  'Divorced',
-                  'Separated',
-                  'Widower',
-                ],
-                // icons: [
-                //   Icons.male,
-                //   Icons.female,
-                //   Icons.male,
-                //   Icons.female,
-                //   Icons.male
-                // ],
-                selectedLabelIndex: (index) {
-                  setState(() {
-                    _maritalStatusSelectedIndex = index;
-                    print(_maritalStatusSelectedIndex);
-                  });
-                },
-                marginSelected:
-                    const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
+               FlutterToggleTab(
+              // selectedBackgroundColors: [Colors.blue],
+              selectedBackgroundColors: [AppColors.secondaryColor],
+
+              width: MediaQuery.of(context).size.width / 3,
+              borderRadius: 10,
+              selectedIndex: maritalStatusLabels.indexOf(_maritalStatusText),
+              selectedTextStyle: const TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
               ),
+              unSelectedTextStyle: const TextStyle(
+                color: Colors.grey,
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+              ),
+              labels: maritalStatusLabels,
+              selectedLabelIndex: (index) {
+                setState(() {
+                  _maritalStatusText = maritalStatusLabels[index];
+                });
+              },
+              marginSelected: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
+            ),
               const SizedBox(
                 height: 20,
               ),
@@ -831,14 +838,144 @@ class _UserInfoSubmitState extends State<UserInfoSubmit> {
               const SizedBox(
                 height: 40,
               ),
-              CustomButton(
-                text: "Continue",
-                ontap: () {
-                  Get.toNamed(Routes.ZOOM_DRAWER);
-                },
-                height: 45,
-                width: AppSizes.width,
-              ),
+              Obx(() {
+                return userInfoController.isLoading.value
+                    ? Center(
+                        child:
+                            const CircularProgressIndicator()) // Show loader if loading
+                    : CustomButton(
+                        text: "Continue",
+                        ontap: () {
+                          // Get.toNamed(Routes.ZOOM_DRAWER);
+                          // if (nameController.text.trim().isEmpty) {
+                          //   Get.snackbar(
+                          //     "Oops!",
+                          //     "Name cannot be empty",
+                          //     backgroundColor: Colors.green,
+                          //     colorText: Colors.white,
+                          //   );
+                          //   return;
+                          // }
+                          if (_genderText == '') {
+                            Get.snackbar(
+                              "Oops!",
+                              "Gender must be selected",
+                              backgroundColor: Colors.green,
+                              colorText: Colors.white,
+                            );
+                            return;
+                          }
+                          if (currentHeight == 0) {
+                            Get.snackbar(
+                              "Oops!",
+                              "Height must be selected",
+                              backgroundColor: Colors.green,
+                              colorText: Colors.white,
+                            );
+                            return;
+                          }
+                          if (_maritalStatusText == '') {
+                            Get.snackbar(
+                              "Oops!",
+                              "Martial Status must be selected",
+                              backgroundColor: Colors.green,
+                              colorText: Colors.white,
+                            );
+                            return;
+                          }
+                          if (_createdByText == '') {
+                            Get.snackbar(
+                              "Oops!",
+                              "Profile Status must be selected",
+                              backgroundColor: Colors.green,
+                              colorText: Colors.white,
+                            );
+                            return;
+                          }
+                          if (homeDistrict.isEmpty) {
+                            Get.snackbar(
+                              "Oops!",
+                              "Home district cannot be empty",
+                              backgroundColor: Colors.green,
+                              colorText: Colors.white,
+                            );
+                            return;
+                          }
+                          if (defaultProfessions.isEmpty) {
+                            Get.snackbar(
+                              "Oops!",
+                              "Profession cannot be empty",
+                              backgroundColor: Colors.green,
+                              colorText: Colors.white,
+                            );
+                            return;
+                          }
+                          if (defaultSalary.isEmpty) {
+                            Get.snackbar(
+                              "Oops!",
+                              "Income cannot be empty",
+                              backgroundColor: Colors.green,
+                              colorText: Colors.white,
+                            );
+                            return;
+                          }
+                          if (defaultEducation.isEmpty) {
+                            Get.snackbar(
+                              "Oops!",
+                              "Education cannot be empty",
+                              backgroundColor: Colors.green,
+                              colorText: Colors.white,
+                            );
+                            return;
+                          }
+                          if (defaultaAge.isEmpty) {
+                            Get.snackbar(
+                              "Oops!",
+                              "Age cannot be empty",
+                              backgroundColor: Colors.green,
+                              colorText: Colors.white,
+                            );
+                            return;
+                          }
+                          if (presentDistrict.isEmpty) {
+                            Get.snackbar(
+                              "Oops!",
+                              "Present district cannot be empty",
+                              backgroundColor: Colors.green,
+                              colorText: Colors.white,
+                            );
+                            return;
+                          }
+                          if (selectedRegion.isEmpty) {
+                            Get.snackbar(
+                              "Oops!",
+                              "Religion must be selected",
+                              backgroundColor: Colors.green,
+                              colorText: Colors.white,
+                            );
+                            return;
+                          }
+
+                          userInfoController.saveUserData(
+                              name: widget.name.toString(),
+                              email: widget.email.toString(),
+                              gender: _genderText.toString(),
+                              height: currentHeight.toString(),
+                              homeDistrict: homeDistrict,
+                              profession: defaultProfessions,
+                              income: defaultSalary,
+                              education: defaultEducation,
+                              maritalStatus:
+                                  _maritalStatusText.toString(),
+                              profile: _createdByText.toString(),
+                              age: defaultaAge,
+                              presentDistrict: presentDistrict,
+                              religion: selectedRegion);
+                        },
+                        height: 45,
+                        width: AppSizes.width,
+                      );
+              }),
               // SizedBox(
               //   height: 10,
               // ),

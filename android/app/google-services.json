@@ -9,15 +9,23 @@
       "client_info": {
         "mobilesdk_app_id": "1:678664219518:android:529a1f6e8f3bf1285d212f",
         "android_client_info": {
-          "package_name": "com.example.bibaho_sheba"
+          "package_name": "com.bibaho_sheba.app"
         }
       },
       "oauth_client": [
         {
+          "client_id": "678664219518-5a4irktic2e1rbkd1mbm10urhpqek1eu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bibaho_sheba.app",
+            "certificate_hash": "4db9cc172c9f3d2fa9fff311820fc0c82096a4c6"
+          }
+        },
+        {
           "client_id": "678664219518-rn9nsuv2mco9tu8m2rbvocimqpjksp1j.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.bibaho_sheba",
+            "package_name": "com.bibaho_sheba.app",
             "certificate_hash": "8cc94c84ac0efa17153463e0c95d104acd7a24c5"
           }
         },

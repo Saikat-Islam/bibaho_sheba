@@ -1,4 +1,6 @@
 import 'package:bibaho_sheba/routes/app_pages.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -24,19 +26,43 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
     super.dispose();
   }
 
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   controller.forward();
+  //   controller.addListener(
+  //     () {
+  //       if (controller.isCompleted) {
+  //         Get.offAllNamed(Routes.LOGIN);
+  //         FirebaseAuth.instance.currentUser != null
+  //             ? Get.offNamed(Routes.ZOOM_DRAWER)
+  //             : Get.offNamed(Routes.LOGIN);
+  //       }
+  //     },
+  //   );
+  // }
+
   @override
-  void initState() {
-    super.initState();
-    controller.forward();
-    controller.addListener(
-      () {
-        if (controller.isCompleted) {
-          Get.offAllNamed(Routes.LOGIN);
-          // FirebaseAuth.instance.currentUser != null ? Get.offNamed(Routes.HOME) : Get.offNamed(Routes.AUTH);
+void initState() {
+  super.initState();
+  controller.forward();
+  controller.addListener(() async {
+    if (controller.isCompleted) {
+      final user = FirebaseAuth.instance.currentUser;
+      if (user != null) {
+        final userDoc = await FirebaseFirestore.instance.collection('users').doc(user.uid).get();
+        if (userDoc.exists) {
+          Get.offAllNamed(Routes.ZOOM_DRAWER); // Go to dashboard
+        } else {
+          Get.offAllNamed(Routes.SIGNING_UP); // Go to user info submission
         }
-      },
-    );
-  }
+      } else {
+        Get.offAllNamed(Routes.LOGIN); // Go to login screen
+      }
+    }
+  });
+}
+
 
   @override
   Widget build(BuildContext context) {
